@@ -1,5 +1,6 @@
 
 import React from "react";
+import DownloadButton from "./DownloadButton";
 
 const Hero = () => {
   return (
@@ -47,6 +48,7 @@ const Hero = () => {
             >
               View Portfolio
             </a>
+            <DownloadButton className="px-8 py-3 font-bold" />
           </div>
         </div>
       </div>
