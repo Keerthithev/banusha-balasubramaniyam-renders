@@ -48,7 +48,16 @@ const Navbar = () => {
             href="#home" 
             className="text-2xl font-bold text-white"
           >
-            <span className="text-moduno-yellow">Mod</span>uno
+          <a href="#home" className="flex items-center space-x-2">
+  <img
+  src="/lovable-uploads/bg.png"
+  alt="Moduno Logo"
+  className="h-[200px] w-auto object-contain filter brightness-90"
+/>
+
+</a>
+
+
           </a>
 
           {/* Desktop Menu */}
@@ -57,7 +66,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-moduno-yellow transition-colors font-medium"
+                className="text-white hover:text-moduno-blue transition-colors font-medium"
               >
                 {link.name}
               </a>
@@ -103,7 +112,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-white hover:text-moduno-yellow transition-colors font-medium"
+                  className="text-white hover:text-moduno-blue transition-colors font-medium"
                   onClick={toggleMobileMenu}
                 >
                   {link.name}

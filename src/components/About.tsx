@@ -4,13 +4,17 @@ import React from "react";
 const About = () => {
   return (
     <section id="about" className="bg-moduno-lightgray section-padding">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto ">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="md:w-1/2">
             <div className="rounded-lg overflow-hidden shadow-xl">
               {/* This would be your profile photo */}
               <div className="bg-moduno-navy h-80 flex items-center justify-center">
-                <span className="text-white text-lg">Your Profile Photo</span>
+                <img
+        src="/lovable-uploads/profile.jpg" // Replace with your actual image path
+        alt="Profile"
+        className="h-full object-cover"
+      />
               </div>
             </div>
           </div>
@@ -48,7 +52,7 @@ const About = () => {
             
             <a 
               href="#contact"
-              className="inline-block px-6 py-3 bg-moduno-yellow text-moduno-navy font-bold rounded-md hover:bg-moduno-navy hover:text-white transition-colors duration-300"
+              className="inline-block px-6 py-3 bg-moduno-blue text-moduno-navy font-bold rounded-md hover:bg-moduno-navy hover:text-white transition-colors duration-300"
             >
               Get In Touch
             </a>

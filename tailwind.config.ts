@@ -27,7 +27,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				moduno: {
 					navy: '#091735',
-					yellow: '#FFD100',
+					blue: '#FFD100',
 					darknavy: '#040E29',
 					lightgray: '#F8F9FA',
 				},

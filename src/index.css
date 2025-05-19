@@ -87,6 +87,6 @@
   }
   
   .heading-underline {
-    @apply relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-moduno-yellow;
+    @apply relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-24 after:h-1 after:bg-moduno-blue;
   }
 }

@@ -1,34 +1,20 @@
+// controllers/DownloadController.ts
+import html2pdf from 'html2pdf.js';
 
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
+export const DownloadController = {
+  async downloadPortfolio() {
+    const element = document.getElementById("portfolio-download"); 
+    // Wrap the about + portfolio in a container with this ID
+    if (!element) throw new Error("Downloadable content not found.");
 
-/**
- * Controller for handling portfolio downloads
- */
-export class DownloadController {
-  /**
-   * Creates and downloads a ZIP file containing portfolio samples
-   */
-  static downloadPortfolio = async () => {
-    try {
-      // Create a new ZIP file
-      const zip = new JSZip();
-      
-      // Add some sample files to the ZIP
-      // In a real implementation, these would be your actual portfolio files
-      zip.file("portfolio/info.txt", "Moduno PVT Ltd - 3D Rendering Portfolio\nBy Banusha Balasubramaniyam\n\nThank you for downloading our portfolio!");
-      zip.file("portfolio/contact.txt", "Email: info@moduno.com\nPhone: +94 XXXXXXXX\nWebsite: www.moduno.com");
-      
-      // Generate the ZIP file
-      const content = await zip.generateAsync({ type: "blob" });
-      
-      // Trigger download
-      saveAs(content, "moduno-portfolio.zip");
-      
-      return true;
-    } catch (error) {
-      console.error("Error creating download:", error);
-      return false;
-    }
+    const opt = {
+      margin:       0,
+      filename:     'Banusha-Balasubramaniyam-Portfolio.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+
+    await html2pdf().set(opt).from(element).save();
   }
-}
+};
