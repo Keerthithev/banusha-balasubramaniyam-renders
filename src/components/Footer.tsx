@@ -21,16 +21,16 @@ const Footer = () => {
               ideas to life.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/share/19RdABw5W4/?mibextid=wwXIfr" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Instagram">
+              {/* <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Twitter">
+              </a> */}
+              {/* <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="Twitter">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="LinkedIn">
+              </a> */}
+              <a href="linkedin.com/in/banusha-balasubramaniyam-a09866281" className="text-gray-400 hover:text-moduno-blue transition-colors" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
             </div>

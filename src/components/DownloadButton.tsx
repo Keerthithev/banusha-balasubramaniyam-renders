@@ -26,45 +26,37 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
         duration: 3000,
       })
 
-      // Add custom font
       const pdf = new jsPDF({
         orientation: "portrait",
         unit: "mm",
         format: "a4",
       })
 
-      // Define consistent measurements
       const pageWidth = pdf.internal.pageSize.getWidth()
       const pageHeight = pdf.internal.pageSize.getHeight()
       const margin = 15
       const contentWidth = pageWidth - margin * 2
 
-      // Helper function to add page header
-      const addPageHeader = (title) => {
-        // Header background
+      const addPageHeader = (title: string) => {
         pdf.setFillColor(26, 83, 92) // moduno-navy
         pdf.rect(0, 0, pageWidth, 25, "F")
 
-        // Header text
         pdf.setTextColor(255, 255, 255)
         pdf.setFont("helvetica", "bold")
         pdf.setFontSize(14)
         pdf.text(title, pageWidth / 2, 15, { align: "center" })
 
-        // Accent line
         pdf.setDrawColor(78, 205, 196) // moduno-blue
         pdf.setLineWidth(0.5)
         pdf.line(margin, 25, pageWidth - margin, 25)
       }
 
-      // Helper function to add section title
-      const addSectionTitle = (title, yPosition) => {
+      const addSectionTitle = (title: string, yPosition: number) => {
         pdf.setTextColor(26, 83, 92) // moduno-navy
         pdf.setFont("helvetica", "bold")
         pdf.setFontSize(14)
         pdf.text(title, margin, yPosition)
 
-        // Underline
         pdf.setDrawColor(78, 205, 196) // moduno-blue
         pdf.setLineWidth(0.5)
         pdf.line(margin, yPosition + 1, margin + pdf.getTextWidth(title), yPosition + 1)
@@ -72,8 +64,7 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
         return yPosition + 10
       }
 
-      // Helper function for text blocks
-      const addTextBlock = (text, x, y, maxWidth, fontSize = 10) => {
+      const addTextBlock = (text: string, x: number, y: number, maxWidth: number, fontSize = 10) => {
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(fontSize)
         pdf.setTextColor(60, 60, 60) // dark gray
@@ -81,45 +72,37 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
         const lines = pdf.splitTextToSize(text, maxWidth)
         pdf.text(lines, x, y)
 
-        return y + lines.length * (fontSize * 0.352) // approximate line height
+        return y + lines.length * (fontSize * 0.352)
       }
 
       // ===== COVER PAGE =====
-      // Background
       pdf.setFillColor(26, 83, 92) // moduno-navy
       pdf.rect(0, 0, pageWidth, pageHeight, "F")
 
-      // Decorative elements
       pdf.setFillColor(78, 205, 196, 0.1) // moduno-blue with transparency
       pdf.circle(pageWidth - margin, margin, 40, "F")
       pdf.circle(margin, pageHeight - margin, 30, "F")
 
-      // Logo/title
       pdf.setTextColor(78, 205, 196) // moduno-blue
       pdf.setFont("helvetica", "bold")
       pdf.setFontSize(36)
       pdf.text("MODUNO", pageWidth / 2, pageHeight / 2 - 30, { align: "center" })
 
-      // Subtitle
       pdf.setTextColor(255, 255, 255) // white
       pdf.setFontSize(18)
       pdf.text("PORTFOLIO", pageWidth / 2, pageHeight / 2 - 10, { align: "center" })
 
-      // Divider
       pdf.setDrawColor(78, 205, 196) // moduno-blue
       pdf.setLineWidth(0.5)
       pdf.line(pageWidth / 2 - 30, pageHeight / 2, pageWidth / 2 + 30, pageHeight / 2)
 
-      // Description
       pdf.setFontSize(12)
       pdf.setFont("helvetica", "normal")
       pdf.text("3D Rendering & Civil Engineering Services", pageWidth / 2, pageHeight / 2 + 15, { align: "center" })
 
-      // Author
       pdf.setFontSize(10)
       pdf.text("By Banusha Balasubramaniyam", pageWidth / 2, pageHeight / 2 + 30, { align: "center" })
 
-      // Date
       pdf.setFontSize(8)
       const currentDate = new Date().toLocaleDateString("en-US", {
         year: "numeric",
@@ -132,40 +115,36 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
       pdf.addPage()
       addPageHeader("ABOUT ME")
 
-      // Capture the About section
       const aboutSection = document.getElementById("about")
       if (aboutSection) {
         let yPos = 40
 
-        // First, capture the profile image
+        // Capture profile image with PNG and proper alignment, no shadow
         const profileImage = aboutSection.querySelector("img")
         if (profileImage) {
           const profileCanvas = await html2canvas(profileImage, {
             scale: 2,
             useCORS: true,
             logging: false,
+            backgroundColor: null, // preserve transparency
           })
 
-          const profileImgData = profileCanvas.toDataURL("image/jpeg", 1.0)
+          const profileImgData = profileCanvas.toDataURL("image/png")
 
-          // Add profile image to PDF with a border
+          // Border around profile image
           pdf.setDrawColor(78, 205, 196) // moduno-blue
           pdf.setLineWidth(0.5)
           pdf.roundedRect(margin, yPos, 50, 50, 2, 2, "S")
-          pdf.addImage(profileImgData, "JPEG", margin + 0.5, yPos + 0.5, 49, 49)
 
-          // Add a subtle shadow effect
-          pdf.setFillColor(0, 0, 0, 0.1)
-          pdf.roundedRect(margin + 2, yPos + 2, 50, 50, 2, 2, "F")
+          // Profile image inside border
+          pdf.addImage(profileImgData, "PNG", margin + 0.5, yPos + 0.5, 49, 49)
         }
 
-        // Extract text content
         const nameElement = aboutSection.querySelector("h3")
         const name = nameElement ? nameElement.textContent : "Banusha Balasubramaniyam"
         const titleElement = aboutSection.querySelector("h3 + p")
         const title = titleElement ? titleElement.textContent : "Founder & Lead Designer"
 
-        // Add name and title
         pdf.setTextColor(26, 83, 92) // moduno-navy
         pdf.setFont("helvetica", "bold")
         pdf.setFontSize(16)
@@ -175,59 +154,48 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
         pdf.setFontSize(12)
         pdf.text(title || "", margin + 60, yPos + 25)
 
-        // Extract bio
         const bioElement = aboutSection.querySelector("p.text-gray-700.mb-6")
         const bio = bioElement ? bioElement.textContent : ""
 
-        // Add bio
         yPos = addTextBlock(bio || "", margin + 60, yPos + 35, contentWidth - 60)
 
-        // Education section
         yPos = addSectionTitle("Education", yPos + 15)
 
-        // Extract education
         const educationItems = aboutSection.querySelectorAll("ul.list-disc li")
-        educationItems.forEach((item, index) => {
+        educationItems.forEach((item) => {
           const bulletX = margin + 5
           const textX = margin + 10
 
-          // Add bullet point
-          pdf.setFillColor(78, 205, 196) // moduno-blue
+          pdf.setFillColor(78, 205, 196)
           pdf.circle(bulletX, yPos + 2, 1.5, "F")
 
-          // Add education item
           yPos = addTextBlock(item.textContent || "", textX, yPos, contentWidth - 10)
-          yPos += 5 // Add some space between items
+          yPos += 5
         })
 
-        // Skills section
         yPos = addSectionTitle("Skills", yPos + 10)
 
-        // Extract skills
         const skillItems = aboutSection.querySelectorAll(".flex.flex-wrap.gap-3 span")
         const skills = Array.from(skillItems).map((item) => item.textContent)
 
         let skillX = margin
-        const startY = yPos
         yPos += 5
 
-        skills.forEach((skill, index) => {
-          const skillWidth = pdf.getTextWidth(skill || "") + 10
+        skills.forEach((skill) => {
+          if (!skill) return
+          const skillWidth = pdf.getTextWidth(skill) + 10
 
-          // Check if we need to move to next line
           if (skillX + skillWidth > pageWidth - margin) {
             skillX = margin
             yPos += 12
           }
 
-          // Draw skill bubble
-          pdf.setFillColor(26, 83, 92) // moduno-navy
+          pdf.setFillColor(26, 83, 92)
           pdf.roundedRect(skillX, yPos - 5, skillWidth, 10, 3, 3, "F")
 
-          // Add skill text
-          pdf.setTextColor(255, 255, 255) // white
+          pdf.setTextColor(255, 255, 255)
           pdf.setFontSize(8)
-          pdf.text(skill || "", skillX + 5, yPos)
+          pdf.text(skill, skillX + 5, yPos)
 
           skillX += skillWidth + 5
         })
@@ -237,7 +205,6 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
       pdf.addPage()
       addPageHeader("PORTFOLIO")
 
-      // Capture the Portfolio section projects
       const portfolioSection = document.getElementById("portfolio")
       if (portfolioSection) {
         const projectElements = portfolioSection.querySelectorAll(".grid > div")
@@ -247,19 +214,16 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
         for (let i = 0; i < projectElements.length; i++) {
           const project = projectElements[i]
 
-          // If we're about to exceed page height, add a new page
           if (yPosition > pageHeight - 60) {
             pdf.addPage()
             addPageHeader("PORTFOLIO (CONTINUED)")
             yPosition = 40
           }
 
-          // Project container
           pdf.setDrawColor(220, 220, 220)
           pdf.setLineWidth(0.3)
           pdf.roundedRect(margin, yPosition, contentWidth, 55, 3, 3, "S")
 
-          // Capture project image
           const projectImage = project.querySelector("img")
           if (projectImage) {
             const projectCanvas = await html2canvas(projectImage, {
@@ -270,11 +234,9 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
 
             const projectImgData = projectCanvas.toDataURL("image/jpeg", 1.0)
 
-            // Add project image to PDF
             pdf.addImage(projectImgData, "JPEG", margin + 5, yPosition + 5, 45, 45)
           }
 
-          // Extract project details
           const titleElement = project.querySelector("h3")
           const title = titleElement ? titleElement.textContent : ""
 
@@ -286,25 +248,22 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
             .map((item) => item.textContent)
             .join(", ")
 
-          // Add project details
           pdf.setTextColor(26, 83, 92) // moduno-navy
           pdf.setFont("helvetica", "bold")
           pdf.setFontSize(12)
           pdf.text(title || "", margin + 55, yPosition + 15)
 
-          // Add description
           pdf.setTextColor(60, 60, 60) // dark gray
           pdf.setFont("helvetica", "normal")
           pdf.setFontSize(9)
           const descLines = pdf.splitTextToSize(description || "", contentWidth - 60)
           pdf.text(descLines, margin + 55, yPosition + 25)
 
-          // Add categories
           pdf.setTextColor(78, 205, 196) // moduno-blue
           pdf.setFontSize(8)
           pdf.text(categories, margin + 55, yPosition + 45)
 
-          yPosition += 65 // Move down for next project with some spacing
+          yPosition += 65
         }
       }
 
@@ -312,12 +271,10 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
       pdf.addPage()
       addPageHeader("CONTACT INFORMATION")
 
-      // Capture the Contact section
       const contactSection = document.getElementById("contact")
       if (contactSection) {
         let yPos = 40
 
-        // Add intro text
         pdf.setTextColor(60, 60, 60)
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(10)
@@ -325,22 +282,18 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
 
         yPos += 15
 
-        // Extract contact details
         const contactItems = contactSection.querySelectorAll("ul.space-y-5 li")
 
-        contactItems.forEach((item, index) => {
+        contactItems.forEach((item) => {
           const contactText = item.textContent?.trim()
           if (contactText) {
-            // Create contact info box
             pdf.setFillColor(245, 245, 245)
             pdf.roundedRect(margin, yPos - 5, contentWidth, 15, 2, 2, "F")
 
-            // Add icon placeholder
-            pdf.setFillColor(26, 83, 92) // moduno-navy
+            pdf.setFillColor(26, 83, 92)
             pdf.circle(margin + 7, yPos + 2, 3, "F")
 
-            // Add contact text
-            pdf.setTextColor(60, 60, 60) // dark gray
+            pdf.setTextColor(60, 60, 60)
             pdf.setFontSize(10)
             pdf.text(contactText, margin + 15, yPos + 3)
 
@@ -348,44 +301,39 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
           }
         })
 
-        // Add company quote
         const quoteElement = contactSection.querySelector(".bg-moduno-navy p")
         const quote = quoteElement ? quoteElement.textContent : ""
 
         if (quote) {
           yPos += 10
 
-          // Quote box
-          pdf.setFillColor(15, 44, 51) // moduno-darknavy
+          pdf.setFillColor(15, 44, 51)
           pdf.roundedRect(margin, yPos, contentWidth, 25, 3, 3, "F")
 
-          // Quote marks
-          pdf.setTextColor(78, 205, 196, 0.3) // moduno-blue with transparency
+          pdf.setTextColor(78, 205, 196, 0.3)
           pdf.setFont("helvetica", "bold")
           pdf.setFontSize(30)
           pdf.text('"', margin + 10, yPos + 15)
           pdf.text('"', pageWidth - margin - 10, yPos + 15, { align: "right" })
 
-          // Quote text
-          pdf.setTextColor(200, 200, 200) // light gray
+          pdf.setTextColor(200, 200, 200)
           pdf.setFontSize(10)
           pdf.setFont("helvetica", "italic")
           pdf.text(quote, pageWidth / 2, yPos + 15, { align: "center" })
         }
 
-        // Add footer with website
         yPos = pageHeight - 30
 
-        pdf.setDrawColor(78, 205, 196) // moduno-blue
+        pdf.setDrawColor(78, 205, 196)
         pdf.setLineWidth(0.5)
         pdf.line(margin, yPos, pageWidth - margin, yPos)
 
-        pdf.setTextColor(26, 83, 92) // moduno-navy
+        pdf.setTextColor(26, 83, 92)
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(8)
         pdf.text("Moduno PVT Ltd ©️ " + new Date().getFullYear(), margin, yPos + 10)
 
-        pdf.setTextColor(78, 205, 196) // moduno-blue
+        pdf.setTextColor(78, 205, 196)
         pdf.text("www.moduno.com", pageWidth - margin, yPos + 10, { align: "right" })
       }
 
@@ -393,17 +341,14 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
       const totalPages = pdf.getNumberOfPages()
       pdf.insertPage(2)
 
-      // Table of contents header
       addPageHeader("CONTENTS")
 
       let tocY = 50
 
-      // Style for TOC entries
       pdf.setFont("helvetica", "bold")
       pdf.setFontSize(12)
-      pdf.setTextColor(26, 83, 92) // moduno-navy
+      pdf.setTextColor(26, 83, 92)
 
-      // TOC entries
       const tocEntries = [
         { title: "About Me", page: 3 },
         { title: "Portfolio", page: 4 },
@@ -411,10 +356,8 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
       ]
 
       tocEntries.forEach((entry) => {
-        // Entry title
         pdf.text(entry.title, margin, tocY)
 
-        // Dots
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(10)
         pdf.setTextColor(150, 150, 150)
@@ -434,15 +377,13 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
 
         pdf.text(dots, margin + titleWidth + 2, tocY)
 
-        // Page number
-        pdf.setTextColor(78, 205, 196) // moduno-blue
+        pdf.setTextColor(78, 205, 196)
         pdf.setFont("helvetica", "bold")
         pdf.text(entry.page.toString(), pageWidth - margin, tocY, { align: "right" })
 
         tocY += 15
       })
 
-      // Save the PDF
       pdf.save("Moduno_Portfolio_2025.pdf")
 
       toast({
