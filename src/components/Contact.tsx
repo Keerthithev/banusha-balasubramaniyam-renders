@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import EmailService from "@/services/EmailService";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -10,6 +11,7 @@ const Contact = () => {
     phone: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -19,22 +21,36 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // This would be replaced with actual form submission logic
+    setIsSubmitting(true);
     
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-      duration: 5000,
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    try {
+      await EmailService.sendContactEmail(formData);
+      
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you as soon as possible.",
+        duration: 5000,
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Message failed to send",
+        description: "Please try again later or contact us directly.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,7 +89,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Email</h4>
-                  <p className="text-gray-700">moduno58@gmail.com</p>
+                  <p className="text-gray-700">keerthiganthevarasa@gmail.com</p>
                 </div>
               </div>
               
@@ -129,6 +145,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-moduno-yellow"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -144,6 +161,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-moduno-yellow"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -158,6 +176,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-moduno-yellow"
+                    disabled={isSubmitting}
                   />
                 </div>
                 
@@ -173,14 +192,16 @@ const Contact = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-moduno-yellow"
                     required
+                    disabled={isSubmitting}
                   ></textarea>
                 </div>
                 
                 <button
                   type="submit"
                   className="w-full py-3 bg-moduno-navy text-white font-bold rounded-md hover:bg-moduno-yellow hover:text-moduno-navy transition-colors duration-300"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </div>
             </form>

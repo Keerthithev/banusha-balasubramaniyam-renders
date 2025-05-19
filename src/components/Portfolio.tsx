@@ -1,61 +1,22 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import ProjectService, { Project } from "@/services/ProjectService";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    setProjects(ProjectService.getProjects());
+  }, []);
 
   const filters = [
     { id: "all", label: "All Projects" },
     { id: "3d", label: "3D Renderings" },
     { id: "interior", label: "Interior Design" },
     { id: "exterior", label: "Exterior Design" },
-  ];
-
-  // These would be replaced with your actual project images
-  const projects = [
-    {
-      id: 1,
-      title: "Modern Living Room",
-      category: ["3d", "interior"],
-      imagePlaceholder: "bg-moduno-navy",
-      description: "3D rendering of a contemporary living room with open concept design."
-    },
-    {
-      id: 2,
-      title: "Luxury Villa Exterior",
-      category: ["3d", "exterior"],
-      imagePlaceholder: "bg-moduno-darknavy",
-      description: "Exterior visualization of a luxury villa with swimming pool."
-    },
-    {
-      id: 3,
-      title: "Kitchen Renovation",
-      category: ["interior"],
-      imagePlaceholder: "bg-moduno-navy",
-      description: "Clean, modern kitchen design with island and premium appliances."
-    },
-    {
-      id: 4,
-      title: "Garden Landscape",
-      category: ["exterior"],
-      imagePlaceholder: "bg-moduno-darknavy",
-      description: "Lush garden landscape design with outdoor seating area."
-    },
-    {
-      id: 5,
-      title: "Office Space",
-      category: ["3d", "interior"],
-      imagePlaceholder: "bg-moduno-navy",
-      description: "3D visualization of a corporate office space with ergonomic design."
-    },
-    {
-      id: 6,
-      title: "Residential Complex",
-      category: ["3d", "exterior"],
-      imagePlaceholder: "bg-moduno-darknavy",
-      description: "3D rendering of a multi-unit residential complex with modern amenities."
-    },
   ];
 
   const filteredProjects = activeFilter === "all" 
@@ -91,29 +52,58 @@ const Portfolio = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="bg-moduno-darknavy rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-2 duration-300">
-              <div className={`${project.imagePlaceholder} h-52 flex items-center justify-center`}>
-                <span className="text-moduno-yellow text-lg font-medium">Project Image</span>
-              </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex gap-2">
-                  {project.category.map((cat) => (
-                    <span 
-                      key={cat} 
-                      className="px-3 py-1 bg-moduno-navy rounded-full text-xs uppercase"
-                    >
-                      {cat === "3d" ? "3D Rendering" : cat === "interior" ? "Interior" : "Exterior"}
-                    </span>
-                  ))}
+        {filteredProjects.length === 0 ? (
+          <div className="text-center py-12">
+            {projects.length === 0 ? (
+              <>
+                <p className="text-lg mb-4">No projects have been added yet.</p>
+                <p className="text-gray-400">
+                  Projects will appear here once they are added through the admin dashboard.
+                </p>
+              </>
+            ) : (
+              <p className="text-lg">No projects found in this category.</p>
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
+              <Link 
+                to={`/project/${project.id}`} 
+                key={project.id}
+                className="bg-moduno-darknavy rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-2 duration-300"
+              >
+                <div className="h-52 overflow-hidden">
+                  {project.images.length > 0 ? (
+                    <img 
+                      src={project.images[0]} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="bg-moduno-navy h-full flex items-center justify-center">
+                      <span className="text-moduno-yellow text-lg font-medium">No Image</span>
+                    </div>
+                  )}
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                <div className="p-6">
+                  <h3 className="font-bold text-xl mb-2">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 line-clamp-2">{project.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.category.map((cat, index) => (
+                      <span 
+                        key={index} 
+                        className="px-3 py-1 bg-moduno-navy rounded-full text-xs uppercase"
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
