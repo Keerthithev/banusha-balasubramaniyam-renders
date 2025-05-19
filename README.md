@@ -1,73 +1,66 @@
-# Welcome to your Lovable project
+# 🎨 Banusha Balasubramaniyam – Personal Portfolio Website
 
-## Project info
+A modern, responsive, and professionally crafted personal portfolio website built to showcase the profile, skills, and work of Banusha Balasubramaniyam.
 
-**URL**: https://lovable.dev/projects/2adee3f7-e283-401d-9d23-5c8a008d9477
+🔗 **Live Site**: [https://banusha-balasubramaniyam-renders.vercel.app](https://banusha-balasubramaniyam-renders.vercel.app)  
+📦 **GitHub Repo**: [github.com/Keerthithev/banusha-balasubramaniyam-renders](https://github.com/Keerthithev/banusha-balasubramaniyam-renders)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📌 Project Overview
 
-**Use Lovable**
+This portfolio was designed to provide a personalized and visually appealing online presence for Banusha. The project began with AI-generated scaffolding, then went through careful manual refinement to ensure a professional standard.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2adee3f7-e283-401d-9d23-5c8a008d9477) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 💡 Highlights
 
-**Use your preferred IDE**
+- ✨ Built with AI tools: [Lovable](https://lovable.dev) and [V0.dev](https://v0.dev)
+- 🛠 Fully customized using GitHub and Visual Studio Code
+- 🌐 Deployed via [Vercel](https://vercel.com) for fast global access
+- ✅ Responsive and accessible design for all screen sizes
+- 🔍 Includes SEO optimization, meta tags, and favicon
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🧑‍💻 Developer Contributions
 
-Follow these steps:
+- 🎯 Tailored layout, text content, and visuals to match the client's profile and branding
+- 🔧 Refined and optimized code using GitHub and VS Code
+- 📱 Integrated responsive design and accessibility improvements
+- 🌍 Managed deployment with Vercel for fast and reliable hosting
+- 🧠 Added professional SEO meta tags, title, description, and favicon
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠 Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+| Technology      | Purpose                          |
+|----------------|----------------------------------|
+| **React**       | Frontend UI framework            |
+| **TypeScript**  | Typed JavaScript for scalability |
+| **Vite**        | Lightning-fast dev server        |
+| **Tailwind CSS**| Styling with utility classes     |
+| **shadcn/ui**   | Reusable UI components           |
+| **Vercel**      | Deployment platform              |
+| **Lovable AI**  | Initial project scaffold         |
+| **V0.dev**      | Component generation             |
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 🚀 Local Development
+
+To run this project locally:
+
+```bash
+# Clone the repo
+git clone https://github.com/Keerthithev/banusha-balasubramaniyam-renders.git
+
+# Go into the project directory
+cd banusha-balasubramaniyam-renders
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/2adee3f7-e283-401d-9d23-5c8a008d9477) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
