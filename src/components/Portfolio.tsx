@@ -53,6 +53,20 @@ const Portfolio = () => {
         { type: "video", url: "/lovable-uploads/VIDEO-2025-05-10-07-39-25.mp4" },
       ],
     },
+    {
+  id: 4,
+  title: "Bathroom Interior Design",
+  category: ["interior"],
+  description: "Designed a bathroom with complete service—from 3D visuals and detailed drawings to cost estimation and construction support.",
+  media: [
+    { type: "image", url: "/lovable-uploads/3d3bf9fe-7919-4993-83dd-0e762368e9fd.jpg" },
+     { type: "image", url: "/lovable-uploads/32d8f7d7-cba1-4481-b1fa-8e26e61df23b.jpg" },
+      { type: "image", url: "/lovable-uploads/84fc3f40-8cc0-4bbd-91f1-068bf5f3e805.jpg" },
+       { type: "image", url: "/lovable-uploads/af3524a2-9d0b-48a8-8b34-725032436e30.jpg" },
+        { type: "image", url: "/lovable-uploads/b081c3e8-3619-44ae-8d87-9766b5317968.jpg" },
+  ],
+}
+
   ]
 
   const filteredProjects =
