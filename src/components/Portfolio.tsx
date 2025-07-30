@@ -261,12 +261,8 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="bg-moduno-navy text-white py-20 md:py-28" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-        >
+        {/* Simple header without animations */}
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold relative inline-block pb-3 mb-4">
             Portfolio
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-moduno-blue"></span>
@@ -275,16 +271,11 @@ const Portfolio = () => {
             Explore our collection of 3D renders, interior designs, and architectural visualizations, showcasing the
             quality and creativity we bring to every project.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map((filter, index) => (
-            <motion.button
+            <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               className={cn(
@@ -293,21 +284,20 @@ const Portfolio = () => {
                   ? "bg-moduno-blue text-moduno-navy shadow-lg scale-105"
                   : "bg-moduno-darknavy text-white hover:bg-moduno-navy",
               )}
-              whileHover={{ scale: activeFilter === filter.id ? 1.05 : 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 + index * 0.1 }}
             >
               {filter.label}
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Debug info */}
           <div className="col-span-full text-center py-4 text-white text-sm">
             Total projects: {projects.length} | Filtered: {filteredProjects.length} | Filter: {activeFilter}
+          </div>
+          {/* Test project to ensure rendering works */}
+          <div className="col-span-full text-center py-4 text-white text-sm">
+            Component is rendering - Projects should appear below
           </div>
           {filteredProjects.length === 0 && (
             <div className="col-span-full text-center py-12">
@@ -315,7 +305,7 @@ const Portfolio = () => {
             </div>
           )}
           {filteredProjects.map((project) => (
-            <motion.div
+            <div
               key={project.id}
               className="bg-moduno-darknavy rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group"
               onClick={() => openModal(project)}
@@ -324,8 +314,6 @@ const Portfolio = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") openModal(project)
               }}
-              variants={itemVariants}
-              whileHover={{ y: -10 }}
             >
               <div className="h-64 overflow-hidden relative">
                 {project.media[0].type === "video" ? (
@@ -383,7 +371,7 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
