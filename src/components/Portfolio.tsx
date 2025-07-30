@@ -11,7 +11,7 @@ const Portfolio = () => {
   const [activeProject, setActiveProject] = useState(null)
   const [activeMediaIndex, setActiveMediaIndex] = useState(0)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const filters = [
     { id: "all", label: "All Projects" },
@@ -242,18 +242,18 @@ const Portfolio = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   }
@@ -304,12 +304,11 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Debug info */}
+          <div className="col-span-full text-center py-4 text-white text-sm">
+            Total projects: {projects.length} | Filtered: {filteredProjects.length} | Filter: {activeFilter}
+          </div>
           {filteredProjects.length === 0 && (
             <div className="col-span-full text-center py-12">
               <p className="text-gray-300 text-lg">No projects found for the selected filter.</p>
@@ -386,7 +385,7 @@ const Portfolio = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Modal */}
