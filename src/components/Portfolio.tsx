@@ -5,93 +5,29 @@ import { X } from "lucide-react"
 
 // Video Thumbnail Component
 const VideoThumbnail = ({ videoUrl, title }: { videoUrl: string; title: string }) => {
-  const [showVideo, setShowVideo] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const handleLoadedData = () => {
-      if (video.duration && video.duration > 0) {
-        // Set to 1 second for a good thumbnail
-        video.currentTime = 1
-        setShowVideo(true)
-      }
-    }
-
-    const handleSeeked = () => {
-      setShowVideo(true)
-    }
-
-    const handleError = () => {
-      setShowVideo(false)
-    }
-
-    // Add event listeners
-    video.addEventListener('loadeddata', handleLoadedData)
-    video.addEventListener('seeked', handleSeeked)
-    video.addEventListener('error', handleError)
-
-    // Set a timeout to show video even if events don't fire
-    const timeout = setTimeout(() => {
-      if (video.readyState >= 2) { // HAVE_CURRENT_DATA
-        video.currentTime = 1
-        setShowVideo(true)
-      }
-    }, 2000)
-
-    return () => {
-      video.removeEventListener('loadeddata', handleLoadedData)
-      video.removeEventListener('seeked', handleSeeked)
-      video.removeEventListener('error', handleError)
-      clearTimeout(timeout)
-    }
-  }, [videoUrl])
-
-  if (showVideo) {
-    return (
-      <video
-        ref={videoRef}
-        src={videoUrl}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        muted
-        preload="metadata"
-        poster="/placeholder.svg"
-        onError={() => setShowVideo(false)}
-      />
-    )
-  }
-
   return (
-    <div className="w-full h-full bg-gradient-to-br from-moduno-navy to-moduno-darknavy flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-20 h-20 bg-moduno-blue/90 rounded-full flex items-center justify-center mb-4 mx-auto">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        </div>
-        <p className="text-white text-sm font-medium">Video Project</p>
-        <p className="text-moduno-blue text-xs mt-1">Click to play</p>
-      </div>
-    </div>
+    <video
+      src={videoUrl}
+      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+      muted
+      preload="metadata"
+      poster="/placeholder.svg"
+      onLoadedData={(e) => {
+        const video = e.target as HTMLVideoElement;
+        if (video.duration && video.duration > 0) {
+          video.currentTime = 1;
+        }
+      }}
+      onError={(e) => {
+        const video = e.target as HTMLVideoElement;
+        video.style.display = 'none';
+        const fallback = document.createElement('img');
+        fallback.src = '/placeholder.svg';
+        fallback.alt = title;
+        fallback.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
+        video.parentNode?.appendChild(fallback);
+      }}
+    />
   )
 }
 
@@ -252,7 +188,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A sophisticated mixed-use building featuring three levels with commercial spaces on the ground floor and residential units above. The design showcases modern architecture with dynamic geometric patterns, warm color palette, and rooftop terrace with natural elements.",
       media: [
-        { type: "image", url: "/lovable-uploads/Three%20storey%20residential%20%2B%20commercial%20building.jpeg" },
+        { type: "image", url: "/lovable-uploads/commercial%20building.jpeg" },
       ],
     },
     {
