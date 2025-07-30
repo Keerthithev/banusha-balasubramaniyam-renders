@@ -28,7 +28,7 @@ const Portfolio = () => {
       description:
         "Full Exterior design for a functional 1000 sq. ft. house, blending modern aesthetics and efficient use of space.",
       media: [
-        { type: "image", url: "/lovable-uploads/WhatsApp Image 2025-05-17 at 10.29.29.jpeg" },
+        { type: "image", url: "/lovable-uploads/WhatsApp%20Image%202025-05-17%20at%2010.29.29.jpeg" },
         { type: "image", url: "/lovable-uploads/PHOTO-2025-05-17-10-29-29.jpg" },
         { type: "video", url: "/lovable-uploads/VIDEO-2025-05-17-10-30-03.mp4" },
       ],
@@ -81,9 +81,9 @@ const Portfolio = () => {
       category: ["interior", "exterior", "3d"],
       description: "A complete transformation of a 3-storey house featuring modern interior design with warm wooden accents, multi-layered false ceilings, and elegant furnishings. The project showcases both interior and exterior renovations with contemporary aesthetics.",
       media: [
-        { type: "image", url: "/lovable-uploads/image copy.png" },
-        { type: "image", url: "/lovable-uploads/image copy 2.png" },
-        { type: "video", url: "/lovable-uploads/WhatsApp Video 2025-07-30 at 19.38.52.mp4" },
+        { type: "image", url: "/lovable-uploads/image%20copy.png" },
+        { type: "image", url: "/lovable-uploads/image%20copy%202.png" },
+        { type: "video", url: "/lovable-uploads/WhatsApp%20Video%202025-07-30%20at%2019.38.52.mp4" },
       ],
     },
     {
@@ -92,7 +92,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A stunning 3-storey building design showcasing modern architecture with innovative layout and contemporary aesthetics. This project demonstrates comprehensive 3D visualization and architectural planning.",
       media: [
-        { type: "video", url: "/lovable-uploads/new house 3 storey building.mp4" },
+        { type: "video", url: "/lovable-uploads/new%20house%203%20storey%20building.mp4" },
       ],
     },
     {
@@ -101,7 +101,7 @@ const Portfolio = () => {
       category: ["interior", "exterior", "3d"],
       description: "Comprehensive renovation project showcasing before and after transformations, highlighting the quality craftsmanship and attention to detail in modern renovation work.",
       media: [
-        { type: "video", url: "/lovable-uploads/renovation work.mp4" },
+        { type: "video", url: "/lovable-uploads/renovation%20work.mp4" },
       ],
     },
     {
@@ -110,7 +110,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A magnificent 3-storey house design featuring modern architecture with elegant proportions and sophisticated exterior detailing. This project showcases comprehensive 3D visualization and architectural excellence.",
       media: [
-        { type: "video", url: "/lovable-uploads/3 storey house.mp4" },
+        { type: "video", url: "/lovable-uploads/3%20storey%20house.mp4" },
       ],
     },
     {
@@ -119,7 +119,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "An affordable single storey house design that maximizes functionality and style within budget constraints. This project demonstrates cost-effective architectural solutions with modern aesthetics.",
       media: [
-        { type: "video", url: "/lovable-uploads/Sinhle storey budget house.mp4" },
+        { type: "video", url: "/lovable-uploads/Sinhle%20storey%20budget%20house.mp4" },
       ],
     },
     {
@@ -146,7 +146,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A contemporary two-storey modern house design featuring sleek architecture with innovative layout and sophisticated exterior detailing. This project showcases modern residential design excellence.",
       media: [
-        { type: "video", url: "/lovable-uploads/Two storey modern house.mp4" },
+        { type: "video", url: "/lovable-uploads/Two%20storey%20modern%20house.mp4" },
       ],
     },
     {
@@ -155,7 +155,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A beautiful single storey house design featuring modern architecture with functional layout and elegant exterior detailing. This project demonstrates efficient use of space with contemporary aesthetics.",
       media: [
-        { type: "video", url: "/lovable-uploads/Single storey house.mp4" },
+        { type: "video", url: "/lovable-uploads/Single%20storey%20house.mp4" },
       ],
     },
     {
@@ -164,7 +164,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A sophisticated mixed-use building featuring three levels with commercial spaces on the ground floor and residential units above. The design showcases modern architecture with dynamic geometric patterns, warm color palette, and rooftop terrace with natural elements.",
       media: [
-        { type: "image", url: "/lovable-uploads/Three storey residential + commercial building.jpeg" },
+        { type: "image", url: "/lovable-uploads/Three%20storey%20residential%20%2B%20commercial%20building.jpeg" },
       ],
     },
     {
@@ -173,7 +173,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A contemporary two-storey house featuring distinctive architecture with light blue and grey stone cladding, prominent arched window, and modern design elements. The house showcases clean lines, mixed textures, and harmonious integration with landscaped surroundings.",
       media: [
-        { type: "image", url: "/lovable-uploads/image copy 3.png" },
+        { type: "image", url: "/lovable-uploads/image%20copy%203.png" },
       ],
     },
     {
@@ -182,7 +182,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A modern two-story house renovation featuring white exterior walls with red-tiled hip roof, multiple windows with wooden frames, and extended balcony with decorative railing. The project showcases comprehensive landscaping with paved courtyard, green spaces, and natural vegetation integration.",
       media: [
-        { type: "image", url: "/lovable-uploads/image copy 4.png" },
+        { type: "image", url: "/lovable-uploads/image%20copy%204.png" },
       ],
     },
     {
@@ -191,7 +191,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A contemporary two-story house featuring light beige exterior with stacked stone cladding, pinkish-red tiled hip roof, and covered outdoor spaces. The design includes spacious porch and balcony areas with integrated lighting, surrounded by lush tropical landscaping.",
       media: [
-        { type: "image", url: "/lovable-uploads/image copy 5.png" },
+        { type: "image", url: "/lovable-uploads/image%20copy%205.png" },
       ],
     },
     {
@@ -200,7 +200,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A detailed view of a house's exterior renovation showcasing modern design with covered porch and carport area. Features light beige walls, warm wooden slatted ceiling, reddish-brown tiled floor, dark wooden-framed windows with multiple panes, and matching double doors. Includes decorative white lattice structure and integration with lush landscaping.",
       media: [
-        { type: "image", url: "/lovable-uploads/Renovation work + moulding work + ipannel.jpeg" },
+        { type: "image", url: "/lovable-uploads/Renovation%20work%20%2B%20moulding%20work%20%2B%20ipannel.jpeg" },
       ],
     }
 
@@ -208,6 +208,11 @@ const Portfolio = () => {
 
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.category.includes(activeFilter))
+
+  // Debug logging
+  console.log('Total projects:', projects.length)
+  console.log('Filtered projects:', filteredProjects.length)
+  console.log('Active filter:', activeFilter)
 
   const openModal = (project) => {
     setActiveProject(project)
@@ -305,6 +310,11 @@ const Portfolio = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
+          {filteredProjects.length === 0 && (
+            <div className="col-span-full text-center py-12">
+              <p className="text-gray-300 text-lg">No projects found for the selected filter.</p>
+            </div>
+          )}
           {filteredProjects.map((project) => (
             <motion.div
               key={project.id}

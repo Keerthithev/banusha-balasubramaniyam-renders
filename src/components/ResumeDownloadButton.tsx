@@ -26,7 +26,7 @@ const ResumeDownloadButton: React.FC<ResumeDownloadButtonProps> = ({ className }
 
       // Create a link element to download the PDF
       const link = document.createElement('a')
-      link.href = '/lovable-uploads/Banu final CV.pdf'
+      link.href = '/lovable-uploads/Banu%20final%20CV.pdf'
       link.download = 'Banusha_Balasubramaniyam_Resume.pdf'
       document.body.appendChild(link)
       link.click()
