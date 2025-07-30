@@ -205,6 +205,7 @@ const Portfolio = () => {
     activeFilter === "all" ? projects : projects.filter((project) => project.category.includes(activeFilter))
 
   const openModal = (project) => {
+    console.log("Opening modal for project:", project.title)
     setActiveProject(project)
     setActiveMediaIndex(0)
     setModalOpen(true)
@@ -258,16 +259,30 @@ const Portfolio = () => {
           ))}
         </div>
 
+        {/* Debug Info */}
+        <div className="text-center py-4 text-white text-sm mb-8">
+          <p>Total projects: {projects.length} | Filtered: {filteredProjects.length} | Filter: {activeFilter}</p>
+          <p>Modal state: {modalOpen ? 'Open' : 'Closed'} | Active project: {activeProject ? activeProject.title : 'None'}</p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="bg-moduno-darknavy rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group"
-              onClick={() => openModal(project)}
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                console.log("Project clicked:", project.title)
+                openModal(project)
+              }}
               role="button"
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === "Enter") openModal(project)
+                if (e.key === "Enter") {
+                  e.preventDefault()
+                  openModal(project)
+                }
               }}
             >
               <div className="h-64 overflow-hidden relative">
