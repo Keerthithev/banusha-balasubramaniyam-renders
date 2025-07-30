@@ -1,7 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
+import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
 
@@ -10,8 +9,6 @@ const Portfolio = () => {
   const [modalOpen, setModalOpen] = useState(false)
   const [activeProject, setActiveProject] = useState(null)
   const [activeMediaIndex, setActiveMediaIndex] = useState(0)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const filters = [
     { id: "all", label: "All Projects" },
@@ -54,18 +51,18 @@ const Portfolio = () => {
       ],
     },
     {
-  id: 4,
-  title: "Bathroom Interior Design",
-  category: ["interior"],
-  description: "Designed a bathroom with complete service—from 3D visuals and detailed drawings to cost estimation and construction support.",
-  media: [
-    { type: "image", url: "/lovable-uploads/3d3bf9fe-7919-4993-83dd-0e762368e9fd.jpg" },
-     { type: "image", url: "/lovable-uploads/32d8f7d7-cba1-4481-b1fa-8e26e61df23b.jpg" },
-      { type: "image", url: "/lovable-uploads/84fc3f40-8cc0-4bbd-91f1-068bf5f3e805.jpg" },
-       { type: "image", url: "/lovable-uploads/af3524a2-9d0b-48a8-8b34-725032436e30.jpg" },
+      id: 4,
+      title: "Bathroom Interior Design",
+      category: ["interior"],
+      description: "Designed a bathroom with complete service—from 3D visuals and detailed drawings to cost estimation and construction support.",
+      media: [
+        { type: "image", url: "/lovable-uploads/3d3bf9fe-7919-4993-83dd-0e762368e9fd.jpg" },
+        { type: "image", url: "/lovable-uploads/32d8f7d7-cba1-4481-b1fa-8e26e61df23b.jpg" },
+        { type: "image", url: "/lovable-uploads/84fc3f40-8cc0-4bbd-91f1-068bf5f3e805.jpg" },
+        { type: "image", url: "/lovable-uploads/af3524a2-9d0b-48a8-8b34-725032436e30.jpg" },
         { type: "image", url: "/lovable-uploads/b081c3e8-3619-44ae-8d87-9766b5317968.jpg" },
-  ],
-},
+      ],
+    },
     {
       id: 5,
       title: "Single-Story House Renovation | Modern Makeover with Functional Design",
@@ -203,7 +200,6 @@ const Portfolio = () => {
         { type: "image", url: "/lovable-uploads/Renovation%20work%20%2B%20moulding%20work%20%2B%20ipannel.jpeg" },
       ],
     }
-
   ]
 
   const filteredProjects =
@@ -237,29 +233,8 @@ const Portfolio = () => {
     setActiveMediaIndex((prev) => (prev - 1 >= 0 ? prev - 1 : activeProject.media.length - 1))
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 10, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  }
-
   return (
-    <section id="portfolio" className="bg-moduno-navy text-white py-20 md:py-28" ref={ref}>
+    <section id="portfolio" className="bg-moduno-navy text-white py-20 md:py-28">
       <div className="container mx-auto px-4">
         {/* Simple header without animations */}
         <div className="text-center mb-16">
@@ -377,145 +352,136 @@ const Portfolio = () => {
       </div>
 
       {/* Modal */}
-      <AnimatePresence>
-        {modalOpen && activeProject && (
-          <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-            onClick={closeModal}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+      {modalOpen && activeProject && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative max-w-5xl w-full bg-moduno-darknavy rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              className="relative max-w-5xl w-full bg-moduno-darknavy rounded-xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25 }}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-moduno-navy/80 hover:bg-moduno-blue text-white p-2 rounded-full transition-colors duration-300"
+              aria-label="Close modal"
             >
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 z-10 bg-moduno-navy/80 hover:bg-moduno-blue text-white p-2 rounded-full transition-colors duration-300"
-                aria-label="Close modal"
-              >
-                <X className="h-6 w-6" />
-              </button>
+              <X className="h-6 w-6" />
+            </button>
 
-              <div className="relative bg-black">
-                {activeProject.media[activeMediaIndex].type === "image" ? (
-                  <img
-                    src={activeProject.media[activeMediaIndex].url || "/placeholder.svg"}
-                    alt={`${activeProject.title} media`}
-                    className="w-full max-h-[70vh] object-contain mx-auto"
-                  />
-                ) : (
-                  <video
-                    controls
-                    autoPlay
-                    className="w-full max-h-[70vh]"
-                    src={activeProject.media[activeMediaIndex].url}
-                  />
-                )}
+            <div className="relative bg-black">
+              {activeProject.media[activeMediaIndex].type === "image" ? (
+                <img
+                  src={activeProject.media[activeMediaIndex].url || "/placeholder.svg"}
+                  alt={`${activeProject.title} media`}
+                  className="w-full max-h-[70vh] object-contain mx-auto"
+                />
+              ) : (
+                <video
+                  controls
+                  autoPlay
+                  className="w-full max-h-[70vh]"
+                  src={activeProject.media[activeMediaIndex].url}
+                />
+              )}
 
-                {/* Media counter */}
-                <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                  {activeMediaIndex + 1} / {activeProject.media.length}
+              {/* Media counter */}
+              <div className="absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
+                {activeMediaIndex + 1} / {activeProject.media.length}
+              </div>
+
+              {/* Navigation */}
+              {activeProject.media.length > 1 && (
+                <>
+                  <button
+                    onClick={prevMedia}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-moduno-blue/80 hover:bg-moduno-blue text-white p-3 rounded-full transition-colors duration-300"
+                    aria-label="Previous media"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={nextMedia}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-moduno-blue/80 hover:bg-moduno-blue text-white p-3 rounded-full transition-colors duration-300"
+                    aria-label="Next media"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
+
+            <div className="p-6 text-white">
+              <h3 className="font-bold text-2xl mb-2 text-moduno-blue">{activeProject.title}</h3>
+              <p className="text-gray-300 mb-4">{activeProject.description}</p>
+
+              {/* Thumbnails */}
+              {activeProject.media.length > 1 && (
+                <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                  {activeProject.media.map((media, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setActiveMediaIndex(index)
+                      }}
+                      className={cn(
+                        "w-20 h-20 rounded-md overflow-hidden flex-shrink-0 border-2 transition-all",
+                        activeMediaIndex === index
+                          ? "border-moduno-blue scale-105"
+                          : "border-transparent opacity-70 hover:opacity-100",
+                      )}
+                    >
+                      {media.type === "image" ? (
+                        <img src={media.url || "/placeholder.svg"} alt="" className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full bg-moduno-navy flex items-center justify-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-8 w-8 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </button>
+                  ))}
                 </div>
-
-                {/* Navigation */}
-                {activeProject.media.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevMedia}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-moduno-blue/80 hover:bg-moduno-blue text-white p-3 rounded-full transition-colors duration-300"
-                      aria-label="Previous media"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                    </button>
-                    <button
-                      onClick={nextMedia}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-moduno-blue/80 hover:bg-moduno-blue text-white p-3 rounded-full transition-colors duration-300"
-                      aria-label="Next media"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </>
-                )}
-              </div>
-
-              <div className="p-6 text-white">
-                <h3 className="font-bold text-2xl mb-2 text-moduno-blue">{activeProject.title}</h3>
-                <p className="text-gray-300 mb-4">{activeProject.description}</p>
-
-                {/* Thumbnails */}
-                {activeProject.media.length > 1 && (
-                  <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-                    {activeProject.media.map((media, index) => (
-                      <button
-                        key={index}
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setActiveMediaIndex(index)
-                        }}
-                        className={cn(
-                          "w-20 h-20 rounded-md overflow-hidden flex-shrink-0 border-2 transition-all",
-                          activeMediaIndex === index
-                            ? "border-moduno-blue scale-105"
-                            : "border-transparent opacity-70 hover:opacity-100",
-                        )}
-                      >
-                        {media.type === "image" ? (
-                          <img src={media.url || "/placeholder.svg"} alt="" className="w-full h-full object-cover" />
-                        ) : (
-                          <div className="w-full h-full bg-moduno-navy flex items-center justify-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-8 w-8 text-white"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                              />
-                            </svg>
-                          </div>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
