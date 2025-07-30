@@ -65,7 +65,144 @@ const Portfolio = () => {
        { type: "image", url: "/lovable-uploads/af3524a2-9d0b-48a8-8b34-725032436e30.jpg" },
         { type: "image", url: "/lovable-uploads/b081c3e8-3619-44ae-8d87-9766b5317968.jpg" },
   ],
-}
+},
+    {
+      id: 5,
+      title: "Single-Story House Renovation | Modern Makeover with Functional Design",
+      category: ["exterior", "3d"],
+      description: "A comprehensive renovation project featuring a modern single-story house with functional design, showcasing a light beige exterior with red-tiled hip roof, inviting porch with pergola-style roof, and practical carport integration.",
+      media: [
+        { type: "image", url: "/lovable-uploads/image.png" },
+      ],
+    },
+    {
+      id: 6,
+      title: "Renovated 3-Storey House – Interior & Exterior Transformation!",
+      category: ["interior", "exterior", "3d"],
+      description: "A complete transformation of a 3-storey house featuring modern interior design with warm wooden accents, multi-layered false ceilings, and elegant furnishings. The project showcases both interior and exterior renovations with contemporary aesthetics.",
+      media: [
+        { type: "image", url: "/lovable-uploads/image copy.png" },
+        { type: "image", url: "/lovable-uploads/image copy 2.png" },
+        { type: "video", url: "/lovable-uploads/WhatsApp Video 2025-07-30 at 19.38.52.mp4" },
+      ],
+    },
+    {
+      id: 7,
+      title: "New House 3 Storey Building",
+      category: ["exterior", "3d"],
+      description: "A stunning 3-storey building design showcasing modern architecture with innovative layout and contemporary aesthetics. This project demonstrates comprehensive 3D visualization and architectural planning.",
+      media: [
+        { type: "video", url: "/lovable-uploads/new house 3 storey building.mp4" },
+      ],
+    },
+    {
+      id: 8,
+      title: "Renovation Work",
+      category: ["interior", "exterior", "3d"],
+      description: "Comprehensive renovation project showcasing before and after transformations, highlighting the quality craftsmanship and attention to detail in modern renovation work.",
+      media: [
+        { type: "video", url: "/lovable-uploads/renovation work.mp4" },
+      ],
+    },
+    {
+      id: 9,
+      title: "3 Storey House",
+      category: ["exterior", "3d"],
+      description: "A magnificent 3-storey house design featuring modern architecture with elegant proportions and sophisticated exterior detailing. This project showcases comprehensive 3D visualization and architectural excellence.",
+      media: [
+        { type: "video", url: "/lovable-uploads/3 storey house.mp4" },
+      ],
+    },
+    {
+      id: 10,
+      title: "Single Storey Budget House",
+      category: ["exterior", "3d"],
+      description: "An affordable single storey house design that maximizes functionality and style within budget constraints. This project demonstrates cost-effective architectural solutions with modern aesthetics.",
+      media: [
+        { type: "video", url: "/lovable-uploads/Sinhle storey budget house.mp4" },
+      ],
+    },
+    {
+      id: 11,
+      title: "4 Storey Commercial Building",
+      category: ["exterior", "3d"],
+      description: "A sophisticated 4-storey commercial building design showcasing modern commercial architecture with functional layout and professional aesthetics. This project demonstrates comprehensive commercial development planning.",
+      media: [
+        { type: "video", url: "/lovable-uploads/commercialbuilding.mp4" },
+      ],
+    },
+    {
+      id: 12,
+      title: "Bakery",
+      category: ["interior", "exterior", "3d"],
+      description: "A charming bakery design featuring warm and inviting interior spaces with functional commercial layout. This project showcases both interior and exterior design for a welcoming bakery environment.",
+      media: [
+        { type: "video", url: "/lovable-uploads/Bakery.mp4" },
+      ],
+    },
+    {
+      id: 13,
+      title: "Two Storey Modern House",
+      category: ["exterior", "3d"],
+      description: "A contemporary two-storey modern house design featuring sleek architecture with innovative layout and sophisticated exterior detailing. This project showcases modern residential design excellence.",
+      media: [
+        { type: "video", url: "/lovable-uploads/Two storey modern house.mp4" },
+      ],
+    },
+    {
+      id: 14,
+      title: "Single Storey House",
+      category: ["exterior", "3d"],
+      description: "A beautiful single storey house design featuring modern architecture with functional layout and elegant exterior detailing. This project demonstrates efficient use of space with contemporary aesthetics.",
+      media: [
+        { type: "video", url: "/lovable-uploads/Single storey house.mp4" },
+      ],
+    },
+    {
+      id: 15,
+      title: "Three Storey Residential + Commercial Building",
+      category: ["exterior", "3d"],
+      description: "A sophisticated mixed-use building featuring three levels with commercial spaces on the ground floor and residential units above. The design showcases modern architecture with dynamic geometric patterns, warm color palette, and rooftop terrace with natural elements.",
+      media: [
+        { type: "image", url: "/lovable-uploads/Three storey residential + commercial building.jpeg" },
+      ],
+    },
+    {
+      id: 16,
+      title: "New Two Storey House",
+      category: ["exterior", "3d"],
+      description: "A contemporary two-storey house featuring distinctive architecture with light blue and grey stone cladding, prominent arched window, and modern design elements. The house showcases clean lines, mixed textures, and harmonious integration with landscaped surroundings.",
+      media: [
+        { type: "image", url: "/lovable-uploads/image copy 3.png" },
+      ],
+    },
+    {
+      id: 17,
+      title: "Renovation House",
+      category: ["exterior", "3d"],
+      description: "A modern two-story house renovation featuring white exterior walls with red-tiled hip roof, multiple windows with wooden frames, and extended balcony with decorative railing. The project showcases comprehensive landscaping with paved courtyard, green spaces, and natural vegetation integration.",
+      media: [
+        { type: "image", url: "/lovable-uploads/image copy 4.png" },
+      ],
+    },
+    {
+      id: 18,
+      title: "New Two Storey House",
+      category: ["exterior", "3d"],
+      description: "A contemporary two-story house featuring light beige exterior with stacked stone cladding, pinkish-red tiled hip roof, and covered outdoor spaces. The design includes spacious porch and balcony areas with integrated lighting, surrounded by lush tropical landscaping.",
+      media: [
+        { type: "image", url: "/lovable-uploads/image copy 5.png" },
+      ],
+    },
+    {
+      id: 19,
+      title: "Renovation Work + Moulding Work + IPanel",
+      category: ["exterior", "3d"],
+      description: "A detailed view of a house's exterior renovation showcasing modern design with covered porch and carport area. Features light beige walls, warm wooden slatted ceiling, reddish-brown tiled floor, dark wooden-framed windows with multiple panes, and matching double doors. Includes decorative white lattice structure and integration with lush landscaping.",
+      media: [
+        { type: "image", url: "/lovable-uploads/Renovation work + moulding work + ipannel.jpeg" },
+      ],
+    }
 
   ]
 
@@ -182,11 +319,38 @@ const Portfolio = () => {
               whileHover={{ y: -10 }}
             >
               <div className="h-64 overflow-hidden relative">
-                <img
-                  src={project.media[0].url || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                {project.media[0].type === "video" ? (
+                  <video
+                    src={project.media[0].url}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    muted
+                    preload="metadata"
+                    poster="/placeholder.svg"
+                    onLoadedData={(e) => {
+                      // Set the current time to show a frame from the middle of the video
+                      const video = e.target as HTMLVideoElement;
+                      if (video.duration && video.duration > 0) {
+                        video.currentTime = video.duration / 2;
+                      }
+                    }}
+                    onError={(e) => {
+                      // Fallback to placeholder if video fails to load
+                      const video = e.target as HTMLVideoElement;
+                      video.style.display = 'none';
+                      const fallback = document.createElement('img');
+                      fallback.src = '/placeholder.svg';
+                      fallback.alt = project.title;
+                      fallback.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
+                      video.parentNode?.appendChild(fallback);
+                    }}
+                  />
+                ) : (
+                  <img
+                    src={project.media[0].url || "/placeholder.svg"}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-moduno-darknavy to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {project.media[0].type === "video" && (
                   <div className="absolute inset-0 flex items-center justify-center">

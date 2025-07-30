@@ -56,6 +56,35 @@ const About = () => {
               </ul>
             </div>
 
+            <div className="mb-8 bg-white p-6 rounded-xl shadow-md">
+              <h4 className="font-semibold mb-3 text-moduno-navy text-lg">Employment:</h4>
+              <div className="space-y-4">
+                <div className="border-l-4 border-moduno-blue pl-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-semibold text-gray-800">Propertied</h5>
+                    <span className="text-sm text-gray-500">Apr 2025 - Present</span>
+                  </div>
+                  <p className="text-moduno-blue font-medium">Moduno (Pvt) Ltd, Thellipalai</p>
+                </div>
+                
+                <div className="border-l-4 border-moduno-blue pl-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-semibold text-gray-800">Technical Officer, Assistant Accountant & Draughtsman</h5>
+                    <span className="text-sm text-gray-500">Jul 2024 - Apr 2025</span>
+                  </div>
+                  <p className="text-moduno-blue font-medium">Myl Construction & Engineering, Sri Lanka</p>
+                </div>
+                
+                <div className="border-l-4 border-moduno-blue pl-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <h5 className="font-semibold text-gray-800">Internship Trainee</h5>
+                    <span className="text-sm text-gray-500">Feb 2024 - May 2024</span>
+                  </div>
+                  <p className="text-moduno-blue font-medium">Department of Buildings, Northern Province, Sri Lanka</p>
+                </div>
+              </div>
+            </div>
+
             <div className="mb-8">
               <h4 className="font-semibold mb-4 text-moduno-navy text-lg">Skills:</h4>
               <div className="flex flex-wrap gap-3">

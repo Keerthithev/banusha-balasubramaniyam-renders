@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import DownloadButton from "./DownloadButton"
+import ResumeDownloadButton from "./ResumeDownloadButton"
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -94,6 +95,7 @@ const Hero = () => {
             >
               View Portfolio
             </a>
+            <ResumeDownloadButton className="sm:hidden" />
             <DownloadButton className="sm:hidden" />
           </motion.div>
         </motion.div>
@@ -102,13 +104,14 @@ const Hero = () => {
       {/* Bottom fade gradient */}
       <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-moduno-darknavy to-transparent" />
 
-      {/* Floating download button on desktop */}
+      {/* Floating download buttons on desktop */}
       <motion.div
-        className="hidden sm:block absolute bottom-10 right-10 z-20"
+        className="hidden sm:block absolute bottom-10 right-10 z-20 flex flex-col gap-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
+        <ResumeDownloadButton className="shadow-xl" />
         <DownloadButton className="shadow-xl" />
       </motion.div>
     </section>

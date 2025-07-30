@@ -224,17 +224,59 @@ const DownloadButton: React.FC<DownloadButtonProps> = ({ className }) => {
           pdf.setLineWidth(0.3)
           pdf.roundedRect(margin, yPosition, contentWidth, 55, 3, 3, "S")
 
+          // Try to find image or video element
           const projectImage = project.querySelector("img")
+          const projectVideo = project.querySelector("video")
+          
           if (projectImage) {
-            const projectCanvas = await html2canvas(projectImage, {
-              scale: 2,
-              useCORS: true,
-              logging: false,
-            })
+            try {
+              const projectCanvas = await html2canvas(projectImage, {
+                scale: 2,
+                useCORS: true,
+                logging: false,
+              })
 
-            const projectImgData = projectCanvas.toDataURL("image/jpeg", 1.0)
-
-            pdf.addImage(projectImgData, "JPEG", margin + 5, yPosition + 5, 45, 45)
+              const projectImgData = projectCanvas.toDataURL("image/jpeg", 1.0)
+              pdf.addImage(projectImgData, "JPEG", margin + 5, yPosition + 5, 45, 45)
+            } catch (error) {
+              console.error("Error capturing image:", error)
+              // Add placeholder for failed image
+              pdf.setFillColor(200, 200, 200)
+              pdf.roundedRect(margin + 5, yPosition + 5, 45, 45, 3, 3, "F")
+              pdf.setTextColor(100, 100, 100)
+              pdf.setFontSize(8)
+              pdf.text("Image", margin + 27, yPosition + 27, { align: "center" })
+            }
+          } else if (projectVideo) {
+            try {
+              // For videos, we'll create a placeholder with video icon
+              pdf.setFillColor(78, 205, 196) // moduno-blue
+              pdf.roundedRect(margin + 5, yPosition + 5, 45, 45, 3, 3, "F")
+              
+              // Add video icon
+              pdf.setTextColor(255, 255, 255)
+              pdf.setFontSize(16)
+              pdf.text("▶", margin + 27, yPosition + 27, { align: "center" })
+              
+              pdf.setTextColor(255, 255, 255)
+              pdf.setFontSize(6)
+              pdf.text("VIDEO", margin + 27, yPosition + 35, { align: "center" })
+            } catch (error) {
+              console.error("Error creating video placeholder:", error)
+              // Fallback placeholder
+              pdf.setFillColor(200, 200, 200)
+              pdf.roundedRect(margin + 5, yPosition + 5, 45, 45, 3, 3, "F")
+              pdf.setTextColor(100, 100, 100)
+              pdf.setFontSize(8)
+              pdf.text("Video", margin + 27, yPosition + 27, { align: "center" })
+            }
+          } else {
+            // No image or video found, add placeholder
+            pdf.setFillColor(200, 200, 200)
+            pdf.roundedRect(margin + 5, yPosition + 5, 45, 45, 3, 3, "F")
+            pdf.setTextColor(100, 100, 100)
+            pdf.setFontSize(8)
+            pdf.text("Media", margin + 27, yPosition + 27, { align: "center" })
           }
 
           const titleElement = project.querySelector("h3")
