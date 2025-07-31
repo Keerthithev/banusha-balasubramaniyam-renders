@@ -105,6 +105,10 @@ const Portfolio = () => {
       category: ["interior", "exterior", "3d"],
       description: "A complete transformation of a 3-storey house featuring modern interior design with warm wooden accents, multi-layered false ceilings, and elegant furnishings. The project showcases both interior and exterior renovations with contemporary aesthetics.",
       media: [
+        { type: "image", url: "/lovable-uploads/1.png" },
+        { type: "image", url: "/lovable-uploads/2.png" },
+        { type: "image", url: "/lovable-uploads/3.png" },
+        { type: "image", url: "/lovable-uploads/4.png" },
         { type: "image", url: "/lovable-uploads/image%20copy.png" },
         { type: "image", url: "/lovable-uploads/image%20copy%202.png" },
         { type: "video", url: "/lovable-uploads/WhatsApp%20Video%202025-07-30%20at%2019.38.52.mp4" },
@@ -116,6 +120,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A stunning 3-storey building design showcasing modern architecture with innovative layout and contemporary aesthetics. This project demonstrates comprehensive 3D visualization and architectural planning.",
       media: [
+        { type: "image", url: "/lovable-uploads/5.png" },
         { type: "video", url: "/lovable-uploads/new%20house%203%20storey%20building.mp4" },
       ],
     },
@@ -125,6 +130,8 @@ const Portfolio = () => {
       category: ["interior", "exterior", "3d"],
       description: "Comprehensive renovation project showcasing before and after transformations, highlighting the quality craftsmanship and attention to detail in modern renovation work.",
       media: [
+        { type: "image", url: "/lovable-uploads/6.png" },
+        { type: "image", url: "/lovable-uploads/7.png" },
         { type: "video", url: "/lovable-uploads/renovation%20work.mp4" },
       ],
     },
@@ -134,6 +141,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A magnificent 3-storey house design featuring modern architecture with elegant proportions and sophisticated exterior detailing. This project showcases comprehensive 3D visualization and architectural excellence.",
       media: [
+        { type: "image", url: "/lovable-uploads/8.png" },
         { type: "video", url: "/lovable-uploads/3%20storey%20house.mp4" },
       ],
     },
@@ -143,6 +151,7 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "An affordable single storey house design that maximizes functionality and style within budget constraints. This project demonstrates cost-effective architectural solutions with modern aesthetics.",
       media: [
+        { type: "image", url: "/lovable-uploads/9.png" },
         { type: "video", url: "/lovable-uploads/Sinhle%20storey%20budget%20house.mp4" },
       ],
     },
@@ -152,7 +161,11 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A sophisticated 4-storey commercial building design showcasing modern commercial architecture with functional layout and professional aesthetics. This project demonstrates comprehensive commercial development planning.",
       media: [
-        { type: "video", url: "/lovable-uploads/4%20storey%20commercial%20building.mp4" },
+        { type: "image", url: "/lovable-uploads/10.png" },
+        { type: "image", url: "/lovable-uploads/11.png" },
+        { type: "image", url: "/lovable-uploads/12.png" },
+        { type: "image", url: "/lovable-uploads/13.png" },
+        { type: "video", url: "/lovable-uploads/commercialbuilding.mp4" },
       ],
     },
     {
@@ -161,6 +174,8 @@ const Portfolio = () => {
       category: ["interior", "exterior", "3d"],
       description: "A charming bakery design featuring warm and inviting interior spaces with functional commercial layout. This project showcases both interior and exterior design for a welcoming bakery environment.",
       media: [
+        { type: "image", url: "/lovable-uploads/14.png" },
+        { type: "image", url: "/lovable-uploads/19.png" },
         { type: "video", url: "/lovable-uploads/Bakery.mp4" },
       ],
     },
@@ -170,6 +185,10 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A contemporary two-storey modern house design featuring sleek architecture with innovative layout and sophisticated exterior detailing. This project showcases modern residential design excellence.",
       media: [
+        { type: "image", url: "/lovable-uploads/15.png" },
+        { type: "image", url: "/lovable-uploads/16.png" },
+        { type: "image", url: "/lovable-uploads/17.png" },
+        { type: "image", url: "/lovable-uploads/18.png" },
         { type: "video", url: "/lovable-uploads/Two%20storey%20modern%20house.mp4" },
       ],
     },
@@ -189,6 +208,11 @@ const Portfolio = () => {
       description: "A sophisticated mixed-use building featuring three levels with commercial spaces on the ground floor and residential units above. The design showcases modern architecture with dynamic geometric patterns, warm color palette, and rooftop terrace with natural elements.",
       media: [
         { type: "image", url: "/lovable-uploads/commercial%20building.jpeg" },
+        { type: "image", url: "/lovable-uploads/21.png" },
+        { type: "image", url: "/lovable-uploads/22.png" },
+        { type: "image", url: "/lovable-uploads/23.png" },
+        { type: "video", url: "/lovable-uploads/20.mp4" },
+
       ],
     },
     {
@@ -206,6 +230,8 @@ const Portfolio = () => {
       category: ["exterior", "3d"],
       description: "A modern two-story house renovation featuring white exterior walls with red-tiled hip roof, multiple windows with wooden frames, and extended balcony with decorative railing. The project showcases comprehensive landscaping with paved courtyard, green spaces, and natural vegetation integration.",
       media: [
+        { type: "image", url: "/lovable-uploads/25.png" },
+        { type: "image", url: "/lovable-uploads/24.png" },
         { type: "image", url: "/lovable-uploads/image%20copy%204.png" },
       ],
     },
@@ -216,6 +242,9 @@ const Portfolio = () => {
       description: "A contemporary two-story house featuring light beige exterior with stacked stone cladding, pinkish-red tiled hip roof, and covered outdoor spaces. The design includes spacious porch and balcony areas with integrated lighting, surrounded by lush tropical landscaping.",
       media: [
         { type: "image", url: "/lovable-uploads/image%20copy%205.png" },
+        { type: "image", url: "/lovable-uploads/26.png" },
+        { type: "image", url: "/lovable-uploads/27.png" },
+       
       ],
     },
     {
@@ -225,8 +254,161 @@ const Portfolio = () => {
       description: "A detailed view of a house's exterior renovation showcasing modern design with covered porch and carport area. Features light beige walls, warm wooden slatted ceiling, reddish-brown tiled floor, dark wooden-framed windows with multiple panes, and matching double doors. Includes decorative white lattice structure and integration with lush landscaping.",
       media: [
         { type: "image", url: "/lovable-uploads/Renovation%20work%20%2B%20moulding%20work%20%2B%20ipannel.jpeg" },
+        { type: "image", url: "/lovable-uploads/28.png" },
+        { type: "image", url: "/lovable-uploads/29.png" },
+        { type: "image", url: "/lovable-uploads/30.png" },
+     
+      ],
+    },
+
+    {
+      id: 20,
+      title: "Seaside Housing Project – 27 Houses & a Mosque",
+      category: ["exterior", "3d"],
+      description: "A simple and well-planned development in a calm seaside location.27 Residential Units.A Beautiful Mosque,Includes All Basic Facilities",
+      media: [
+        
+        { type: "image", url: "/lovable-uploads/31.png" },
+        { type: "image", url: "/lovable-uploads/32.png" },
+        { type: "image", url: "/lovable-uploads/33.png" },
+        { type: "image", url: "/lovable-uploads/34.png" },
+        { type: "image", url: "/lovable-uploads/35.png" },
+        { type: "image", url: "/lovable-uploads/36.png" },
+        { type: "image", url: "/lovable-uploads/37.png" },
+      
+        { type: "video", url: "/lovable-uploads/38.mp4" },
+        
+     
+      ],
+    },
+
+
+    {
+      id: 21,
+      title: "Double storey house ",
+      category: ["exterior", "3d"],
+      description: "Double storey house ",
+      media: [
+        
+        { type: "image", url: "/lovable-uploads/40.png" },
+        { type: "image", url: "/lovable-uploads/39.png" },
+        { type: "image", url: "/lovable-uploads/41.png" },
+       
+        
+     
+      ],
+    },
+
+    {
+      id: 22,
+      title: "Wood work ",
+      category: ["interior", "3d"],
+      description: "Wood work",
+      media: [
+        
+        { type: "image", url: "/lovable-uploads/45.png" },
+        { type: "image", url: "/lovable-uploads/42.png" },
+        { type: "image", url: "/lovable-uploads/43.png" },
+        { type: "image", url: "/lovable-uploads/44.png" },
+        
+     
+      ],
+    },
+
+
+    {
+      id: 23,
+      title: "TV Wall Decoration",
+      category: ["interior", "3d"],
+      description: "Modern TV wall decor with panel accents and ambient lighting for a sleek living room upgrade.",
+      media: [
+        
+        { type: "image", url: "/lovable-uploads/46.png" },
+        { type: "video", url: "/lovable-uploads/47.mp4" },
+        
+     
+      ],
+    },
+
+    {
+      id: 24,
+      title: "TV Wall Decoration",
+      category: ["interior", "3d"],
+      description: "Modern TV wall decor with panel accents and ambient lighting for a sleek living room upgrade.",
+      media: [
+        
+        { type: "image", url: "/lovable-uploads/48.png" },
+        { type: "image", url: "/lovable-uploads/49.png" },
+        { type: "image", url: "/lovable-uploads/50.png" },
+        { type: "video", url: "/lovable-uploads/51.mp4" },
+        
+     
+      ],
+    },
+    {
+      id: 25,
+      title: "modern bathroom design",
+      category: ["interior", "3d"],
+      description: "modern bathroom design",
+      media: [
+        { type: "image", url: "/lovable-uploads/55.png" },
+        { type: "image", url: "/lovable-uploads/52.png" },
+        { type: "image", url: "/lovable-uploads/53.png" },
+        { type: "image", url: "/lovable-uploads/54.png" },
+      
+        
+     
+      ],
+    },
+
+    {
+      id: 26,
+      title: "Modern kitchen design",
+      category: ["interior", "3d"],
+      description: "Modern kitchen design",
+      media: [
+        { type: "image", url: "/lovable-uploads/60.png" },
+        { type: "image", url: "/lovable-uploads/56.png" },
+        { type: "image", url: "/lovable-uploads/57.png" },
+        { type: "image", url: "/lovable-uploads/58.png" },
+        { type: "image", url: "/lovable-uploads/59.png" },
+        { type: "image", url: "/lovable-uploads/61.png" },
+      
+      ],
+    },
+
+    {
+      id: 27,
+      title: "Jewellery shop moulding design",
+      category: ["interior", "3d"],
+      description: "Jewellery shop moulding design",
+      media: [
+        { type: "image", url: "/lovable-uploads/65.png" },
+        { type: "image", url: "/lovable-uploads/62.png" },
+        { type: "image", url: "/lovable-uploads/63.png" },
+        { type: "image", url: "/lovable-uploads/66.png" },
+        { type: "image", url: "/lovable-uploads/67.png" },
+       
+      ],
+    },
+    {
+      id: 28,
+      title: "Single storey budget house",
+      category: ["interior", "3d"],
+      description: "Single storey budget house",
+      media: [
+        { type: "image", url: "/lovable-uploads/73.png" },
+        { type: "image", url: "/lovable-uploads/68.png" },
+        { type: "image", url: "/lovable-uploads/69.png" },
+        { type: "image", url: "/lovable-uploads/70.png" },
+        { type: "image", url: "/lovable-uploads/71.png" },
+        { type: "image", url: "/lovable-uploads/72.png" },
+        { type: "image", url: "/lovable-uploads/74.png" },
+        { type: "video", url: "/lovable-uploads/75.mp4" },
+       
       ],
     }
+
   ]
 
   const filteredProjects =
